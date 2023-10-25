@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 2</title>
+    <link rel="stylesheet" href="dist/output.css">
+</head>
+
+<body class="bg-gradient-to-tb flex flex-col gap-24 items-center p-8">
+    <header class="flex justify-between items-center md:w-3/5 sm:w-3/4 md:p-12 h-32 border rounded-lg">
+        <section class="text-white text-3xl font-bold">
+            <h1>ROCK</h1>
+            <h1>PAPER</h1>
+            <h1>SCISSORS</h1>
+        </section>
+        <section class="bg-white w-40 h-24 text-center rounded-xl flex flex-col items-center justify-center">
+            <p class="text-blue-400 font-medium">SCORE</p>
+            <p class="font-bold text-darkText text-6xl">13</p>
+        </section>
+    </header>
+    <main class="text-white font-bold flex justify-between gap-9">
+        <div id="left" class="flex flex-col justify-center items-center ">
+            <h1>YOU PICKED</h1>
+            <!--           <img src="images/icon-scissors.svg" alt=""> -->
+            <figure id="shadow"
+                class="border-22 border-scissorsGradientLeft flex justify-center items-center w-52  rounded-5 h-52 p-10 bg-white mt-7">
+                <img src="images/icon-scissors.svg" alt="icon-scissors" width="50rem" class="h-24">
+            </figure>
+        </div>
+        <div id="right" class="flex flex-col justify-center items-center ">
+            <h1>COMPUTER PICKED</h1>
+            <!-- <img src="images/icon-paper.svg" alt=""> -->
+            <figure class=" flex justify-center items-center w-44 rounded-5 h-44 p-10 bg-radialGradientRight mt-7">
+                <div width="50rem" class="h-44"></div>
+            </figure>
+        </div>
+    </main>
+    <!--  <main class="m-11">
+            <section class="flex justify-center">
+                <figure
+                    class="-ml-16 border-22 border-paperGradientLeft flex justify-center items-center w-44 rounded-5 h-44 p-10 bg-white">
+                    <img src="images/icon-paper.svg" alt="" width="50rem" class="h-16">
+                </figure>
+                <figure
+                    class="ml-11 mb-32 -mr-16 border-22 border-scissorsGradientLeft flex justify-center items-center w-44  rounded-5 h-44 p-10 bg-white">
+                    <img src="images/icon-scissors.svg" alt="" width="50rem" class="">
+                </figure>
+            </section>
+            <figure
+                class="ml-11 flex justify-center items-center p-10 border-22 border-rockGradient  w-44 rounded-5 h-44  bg-white">
+                <img src="images/icon-rock.svg" alt="">
+            </figure>
+        </main> -->
+    <button style="letter-spacing: 2px;"
+        class="border w-32 font-light text-xl h-10 absolute bottom-9 right-7 text-white rounded">Rules</button>
+</body>
+
+</html>
