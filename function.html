@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="rockPaperScissorsApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <link rel="stylesheet" href="input.css">
+</head>
+
+<body class="bg-gradient-to-tb flex flex-col items-center justify-center p-8" ng-controller="GameController">
+    <header class="flex justify-between items-center md:w-3/5 sm:w-3/4 md:p-12 h-32 border rounded-lg">
+        <section class="text-white text-3xl font-bold">
+            <h1>ROCK</h1>
+            <h1>PAPER</h1>
+            <h1>SCISSORS</h1>
+        </section>
+        <section class="bg-white w-40 h-24 text-center rounded-xl flex flex-col items-center justify-center">
+            <p class="text-blue-400 font-medium">SCORE</p>
+            <p class="font-bold text-darkText text-6xl">{{ score }}</p>
+        </section>
+    </header>
+    <div>
+        <main class="m-11">
+            <section class="flex justify-center">
+                <figure ng-click="play('paper')"
+                    class="-ml-16 border-22 border-paperGradientLeft flex justify-center items-center w-44 rounded-5 h-44 p-10 bg-white">
+                    <img src="images/icon-paper.svg" alt="" width="50rem" class="h-16">
+                </figure>
+                <figure ng-click="play('scissors')"
+                    class="ml-11 mb-32 -mr-16 border-22 border-scissorsGradientLeft flex justify-center items-center w-44  rounded-5 h-44 p-10 bg-white">
+                    <img src="images/icon-scissors.svg" alt="" width="50rem" class="">
+                </figure>
+            </section>
+            <figure ng-click="play('rock')"
+                class="ml-11 flex justify-center items-center p-10 border-22 border-rockGradient  w-44 rounded-5 h-44  bg-white">
+                <img src="images/icon-rock.svg" alt="">
+            </figure>
+        </main>
+    </div>
+    <button style="letter-spacing: 2px;" class="border w-32 font-light text-xl h-10 absolute bottom-9 right-7 text-white rounded"
+        ng-click="showRules()">Rules</button>
+
+    <div class="result" ng-show="showResult">
+        <h2>{{ resultMessage }}</h2>
+        <button ng-click="resetGame()">Play Again</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        angular.module('rockPaperScissorsApp', [])
+            .controller('GameController', function ($scope) {
+                $scope.score = 0;
+                $scope.showResult = false;
+                $scope.resultMessage = '';
+
+                $scope.play = function (userChoice) {
+                    const choices = ['rock', 'paper', 'scissors'];
+                    const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+                    if (userChoice === computerChoice) {
+                        $scope.resultMessage = "It's a tie!";
+                    } else if (
+                        (userChoice === 'rock' && computerChoice === 'scissors') ||
+                        (userChoice === 'paper' && computerChoice === 'rock') ||
+                        (userChoice === 'scissors' && computerChoice === 'paper')
+                    ) {
+                        $scope.resultMessage = "You win!";
+                        $scope.score++;
+                    } else {
+                        $scope.resultMessage = "Computer wins!";
+                    }
+
+                    $scope.showResult = true;
+                };
+
+                $scope.resetGame = function () {
+                    $scope.showResult = false;
+                    $scope.resultMessage = '';
+                };
+
+                $scope.showRules = function () {
+                    // Implement rules display logic here
+                };
+            });
+    </script>
+</body>
+
+</html>
